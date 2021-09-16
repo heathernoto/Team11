@@ -6,5 +6,5 @@ curl -X POST localhost:8080/api/businesses -d "{\"businessName\": \"TestBusiness
 # Add a user
 curl -X POST localhost:8080/api/users -d "{\"userEmail\": \"test2@mail.com\", \"userName\": \"Liz\", \"allyPoints\": \"3\"}" -H "Content-Type:application/json"
 
-#List links in the application
+# List links in the application
 curl localhost:8080/api
