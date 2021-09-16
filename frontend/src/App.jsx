@@ -2,6 +2,9 @@ import React from "react";
 import "./css/styles.css";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import SearchResultsPage from "./pages/SearchResultsPage";
+import HomePage from "./pages/HomePage";
+import SubmitFormPage from "./pages/SubmitFormPage";
 
 const App = () => {
   return (
@@ -10,8 +13,9 @@ const App = () => {
         <Route
           path="/"
           render={({ location }) => {
-            if (location.search == "?route") return <div>route</div>;
-            else return <div>home</div>;
+            if (location.search == "?search") return <SearchResultsPage />;
+            else if (location.search = "?submit") return <SubmitFormPage />;
+            else return <HomePage />;
           }}
         />
       </Switch>
