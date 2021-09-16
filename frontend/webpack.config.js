@@ -23,7 +23,7 @@ module.exports = {
       extensions: [".js", ".jsx"],
     },
     output: {
-      path: path.resolve(__dirname, "./dist"),
+      path: path.resolve(__dirname, "../src/main/resources/static"),
       filename: "[name].js",
     },
     plugins: [
