@@ -16,7 +16,7 @@ const App = () => {
           path="/"
           render={({ location }) => {
             if (location.search == "?search") return <SearchResultsPage />;
-            else if (location.search = "?submit") return <SubmitFormPage />;
+            else if (location.search == "?submit") return <SubmitFormPage />;
             else return <HomePage />;
           }}
         />
