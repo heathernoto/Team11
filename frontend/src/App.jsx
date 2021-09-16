@@ -6,6 +6,8 @@ import SearchResultsPage from "./pages/SearchResultsPage";
 import HomePage from "./pages/HomePage";
 import SubmitFormPage from "./pages/SubmitFormPage";
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 const App = () => {
   return (
     <Router>
