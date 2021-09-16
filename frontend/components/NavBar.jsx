@@ -19,9 +19,7 @@ const NavBar = (props) => {
                     <Link to="/?submit">
                         <Nav.Link href="#link">Submit Info</Nav.Link>
                     </Link>
-                    <Link to="/?search">
-                        <SearchBar />
-                    </Link>
+                    <SearchBar />
                 </Nav>
             </Navbar.Collapse>
         </Container>
