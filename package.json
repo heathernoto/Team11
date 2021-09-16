@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "npx webpack",
-    "buildCont": "npx webpack --progress --watch"
+    "package": "npx webpack --progress --watch"
   },
   "author": "",
   "license": "ISC",
