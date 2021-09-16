@@ -4,7 +4,7 @@ const path = require("path");
 module.exports = {
     mode: 'development',
     entry: {
-        app: path.resolve(__dirname, "./src/index.js")
+        app: path.resolve(__dirname, "./frontend/index.js")
     },
     module: {
       rules: [
@@ -23,12 +23,12 @@ module.exports = {
       extensions: [".js", ".jsx"],
     },
     output: {
-      path: path.resolve(__dirname, "../src/main/resources/static"),
+      path: path.resolve(__dirname, "./src/main/resources/static"),
       filename: "[name].js",
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'src/index.html',
+            template: 'frontend/index.html',
             chunks : ['app'],
             filename: 'index.html'
         })
