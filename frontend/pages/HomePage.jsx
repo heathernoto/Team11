@@ -11,7 +11,7 @@ class HomePage extends React.Component{
     render() {
         return (
             <>
-                <NavBar />
+                <NavBar history={this.props.history} location={this.props.location}/>
                 <Container>
                     landing
                 </Container>

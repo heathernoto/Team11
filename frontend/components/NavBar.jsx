@@ -19,7 +19,7 @@ const NavBar = (props) => {
                     <Link to="/?submit">
                         <Nav.Link href="#link">Submit Info</Nav.Link>
                     </Link>
-                    <SearchBar />
+                    <SearchBar history={props.history} location={props.location} />
                 </Nav>
             </Navbar.Collapse>
         </Container>

@@ -1,11 +1,12 @@
 import React from "react";
 import {Form, Container, Button} from "react-bootstrap";
+import NavBar from "../components/NavBar";
 
 const defaultFormState = {
     businessName:"",
     city:"",
     streetAddress:"",
-    selectedState:"",
+    selectedState:"AK",
     accessibilityBooleans: [false, false, false, false]
 }
 class SubmitFormPage extends React.Component {
@@ -25,7 +26,19 @@ class SubmitFormPage extends React.Component {
         }
     }
 
+    assemblePostBody = () => {
+        return JSON.stringify({
+            businessName: this.state.businessName,
+            streetNumber: parseInt(this.state.streetAddress),
+            streetName: this.state.streetAddress.replace(/[0-9]/g, ""),
+            city: this.state.city,
+            state: this.state.selectedState,
+            ...this.state.accessibilityFeatures.map((feature, index) => {return {[feature]: this.state.accessibilityBooleans[index]}})
+        })
+    }
+
     sendData = (e) => {
+        console.log(this.assemblePostBody())
         console.log("SUBMIT")
         e.preventDefault();
         fetch("/api/businesses", {
@@ -34,14 +47,7 @@ class SubmitFormPage extends React.Component {
                 "Accept": 'application/json',
                 "Content-Type": 'application/json'
             },
-            body: JSON.stringify({
-                businessName: this.state.businessName,
-                streetNumber: parseInt(this.state.streetAddress),
-                streetName: this.state.streetAddress.replace(/[0-9]/g, ""),
-                city: this.state.city,
-                state: this.state.selectedState,
-                ...this.state.accessibilityFeatures.map((feature, index) => {return {[feature]: this.state.accessibilityBooleans[index]}})
-            })
+            body: this.assemblePostBody()
         }).then(res => {
             return res.json()
         }, (err) => {
@@ -54,6 +60,7 @@ class SubmitFormPage extends React.Component {
     render() {
         return (
             <Form>
+                <NavBar history={this.props.history} location={this.props.location} />
                 <Container>
                 Submit accessibility information here:
                     <Form.Group className="mb-3" controlId="formBusinessInfo" >
@@ -65,9 +72,9 @@ class SubmitFormPage extends React.Component {
                         <Form.Control type="text" name="city" placeholder="City" value = {this.state.city} onChange={(e)=> this.setState({city: e.target.value})} required/>
                         
                         <Form.Label>Select your State</Form.Label>
-                        <Form.Control as="select" aria-label="select state" >
+                        <Form.Control as="select" aria-label="select state" onChange={(e) => {console.log(e);this.setState({selectedState: e.target.valueAsDate})}} >
                             {this.state.listOfUSStates.map((state) => {
-                                return (<option key={state}>{state}</option>)
+                                return (<option key={state} value={state}>{state}</option>)
                             })}
                         </Form.Control>
                         {this.state.accessibilityFeatures.map(((feature, index) => {

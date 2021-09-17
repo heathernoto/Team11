@@ -14,10 +14,10 @@ const App = () => {
       <Switch>
         <Route
           path="/"
-          render={({ location }) => {
-            if (location.search == "?search") return <SearchResultsPage />;
-            else if (location.search == "?submit") return <SubmitFormPage />;
-            else return <HomePage />;
+          render={({ location, history }) => {
+            if (location.search == "?search") return <SearchResultsPage location={location} history={history}/>;
+            else if (location.search == "?submit") return <SubmitFormPage location={location} history={history}/>;
+            else return <HomePage location={location} history={history}/>;
           }}
         />
       </Switch>

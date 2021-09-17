@@ -1,6 +1,7 @@
 import React from "react";
 import {InputGroup, Dropdown, SplitButton, FormControl, DropdownButton} from "react-bootstrap";
 
+
 class SearchBar extends React.Component {
     constructor(props) {
         super(props);
@@ -19,8 +20,10 @@ class SearchBar extends React.Component {
 
     updateSearchInput = (e) => {
         this.setState(() => ({
-            searchInput: e.target.data
-        }))
+            searchInput: e.target.value
+        }), () => {
+            console.log(this.state.searchInput)
+        })
     }
 
     handleKeyPress = (target) => {
@@ -30,8 +33,8 @@ class SearchBar extends React.Component {
     }
 
     onSearch = (e) => {
-        console.log("SEARCH", e)
-        fetch(`/name?name=${this.state.searchInput}`, {
+        console.log("SEARCH", this.state.searchInput, e)
+        fetch(`/name?name=${encodeURIComponent(this.state.searchInput)}`, {
             method: "GET",
             headers: {
                 "Accept": 'application/json'
@@ -41,12 +44,16 @@ class SearchBar extends React.Component {
         }, err=> {
             console.log(err)
         }).then(res => {
-            console.log(res)
+            
+            const pathName = this.props.location.pathname+this.props.location.search
+            console.log(res, pathName)
+            this.props.history.push("/?search", res)
         })
-    
+        
     }
 
     render(){
+        console.log(this.state)
         return (
             <InputGroup className="mb-3" onKeyPress={this.handleKeyPress}>
                 <FormControl aria-label="Text input with dropdown button" value={this.state.searchInput} onChange={this.updateSearchInput}/>

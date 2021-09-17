@@ -7,20 +7,16 @@ class SearchResultsPage extends React.Component{
 
     constructor(props){
         super(props)
+        console.log(props.location)
         this.state = {
-            businesses: [
-                            {businessName: "Just a Random Bakery", city: "Hoboken", state: "NJ"}, 
-                            {businessName: "Just a Random Restaurant", city: "New York", state: "NY"},
-                            {businessName: "Just a Random Dollar Store", city: "White Plains", state: "NY"},
-                            {businessName: "Just a Random Doctor's Office", city: "Philadelphia", state: "PA"}
-                        ]
+            businesses: props.location != undefined && props.location.state != undefined ? props.location.state : []
         }
     }
 
     render() {
         return (
             <>
-                <NavBar />
+                <NavBar history={this.props.history} location={this.props.location} />
                 <Container>
                     {this.state.businesses.map((business) => {
                         return ( 
