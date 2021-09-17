@@ -8,3 +8,6 @@ curl -X POST localhost:8080/api/users -d "{\"userEmail\": \"test2@mail.com\", \"
 
 # List links in the application
 curl localhost:8080/api
+
+# Request by business name
+http://localhost:8080/business-name?&name=TestBusiness

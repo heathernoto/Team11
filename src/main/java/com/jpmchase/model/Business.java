@@ -53,7 +53,7 @@ public class Business {
         this.restroomAccessible = restroomAccessible;
     }
 
-    private Business() {}
+    public Business() {}
 
     public String getBusinessName() {
         return businessName;
@@ -129,17 +129,11 @@ public class Business {
 
     @Override
     public String toString() {
-        return "Business{" +
-                "id=" + id +
-                ", businessName='" + businessName + '\'' +
-                ", streetNumber=" + streetNumber +
-                ", streetName='" + streetName + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", rampPresent='" + rampPresent + '\'' +
-                ", doorWidthAccessible='" + doorWidthAccessible + '\'' +
-                ", stepsOnEntry='" + stepsOnEntry + '\'' +
-                ", restroomAccessible='" + restroomAccessible + '\'' +
-                '}';
+        try {
+            return new com.fasterxml.jackson.databind.ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(this);
+        } catch (com.fasterxml.jackson.core.JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
