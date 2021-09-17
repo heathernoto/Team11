@@ -1,5 +1,4 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ErrorOverlayPlugin = require('error-overlay-webpack-plugin')
 const path = require("path");
 
 module.exports = {
@@ -32,7 +31,6 @@ module.exports = {
             template: 'frontend/index.html',
             chunks : ['app'],
             filename: 'index.html'
-        }),
-        new ErrorOverlayPlugin()
+        })
     ]
 };
