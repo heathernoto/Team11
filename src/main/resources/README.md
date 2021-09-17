@@ -1,0 +1,16 @@
+“Entry Door Width Over 32 inches”,
+“Wheelchair Accessible Tables”,
+“Braille Menu”,
+“Steps to Enter”,
+“Ramp to Enter”,
+“Accessible Restrooms”,
+“Picture Menu”,
+“Elevator”,
+“Single Level”,
+“Multiple Level”,
+“Accessible Drinking Fountain”,
+“Accessible Parking”,
+“Assistive Listening Devices”,
+“Accessible Checkout Lane”,
+“Accessible Dressing Rooms”
+]
