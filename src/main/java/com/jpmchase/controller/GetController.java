@@ -31,7 +31,7 @@ public class GetController {
                     "from business " +
                     "where business_name =?";
 
-    @RequestMapping(value = "/business-name", method = RequestMethod.GET)
+    @RequestMapping(value = "/name", method = RequestMethod.GET)
     public String getBusinessByName(@RequestParam String name) throws Exception{
         Business business = new Business();
         Long id = null;
