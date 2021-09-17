@@ -31,9 +31,8 @@ class SearchBar extends React.Component {
 
     onSearch = (e) => {
         console.log("SEARCH", e)
-        fetch("/name", {
+        fetch(`/name?name=${this.state.searchInput}`, {
             method: "GET",
-            qs: {name: this.state.searchInput},
             headers: {
                 "Accept": 'application/json'
             },
