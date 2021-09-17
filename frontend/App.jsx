@@ -1,5 +1,4 @@
 import React from "react";
-import "./css/styles.css";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import SearchResultsPage from "./pages/SearchResultsPage";
@@ -7,6 +6,7 @@ import HomePage from "./pages/HomePage";
 import SubmitFormPage from "./pages/SubmitFormPage";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "./css/styles.css";
 
 const App = () => {
   return (
