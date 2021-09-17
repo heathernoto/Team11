@@ -11,3 +11,7 @@ curl localhost:8080/api
 
 # Request by business name
 http://localhost:8080/business-name?&name=TestBusiness
+
+# Sample output for requests by name
+## It is returned as a json array string The below result shows a query response with multiple hits. It will be an array even if there is only one db hit for a given name
+[{ "businessName" : "Bills Car Wash", "streetNumber" : 1010, "streetName" : "Billiams St", "city" : "Columbus", "state" : "OH", "rampPresent" : true, "doorWidthAccessible" : false, "stepsOnEntry" : true, "restroomAccessible" : false }, { "businessName" : "Bills Car Wash", "streetNumber" : 2000, "streetName" : "Williams", "city" : "Smyrna", "state" : "DE", "rampPresent" : false, "doorWidthAccessible" : false, "stepsOnEntry" : true, "restroomAccessible" : false }]
